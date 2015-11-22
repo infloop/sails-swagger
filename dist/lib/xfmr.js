@@ -158,7 +158,7 @@ var Transformer = {
     var childAttributeName = _path$split2[3];
     var childId = _path$split2[4];
 
-    var parentModel = sails.models[parentModelName];
+    var parentModel = sails.models[parentModelName] || sails.models[parentModelName.slice(0, -1)];
     var childAttribute = _lodash2['default'].get(parentModel, ['attributes', childAttributeName]);
     var childModelName = _lodash2['default'].get(childAttribute, 'collection') || _lodash2['default'].get(childAttribute, 'model');
     var childModel = sails.models[childModelName];
